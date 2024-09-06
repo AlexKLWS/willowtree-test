@@ -4,6 +4,7 @@ module.exports = {
     [
       'babel-plugin-root-import',
       {
+        rootPathPrefix: '~',
         rootPathSuffix: 'src',
       },
     ],
@@ -11,4 +12,18 @@ module.exports = {
     'babel-plugin-parameter-decorator',
     'react-native-reanimated/plugin',
   ],
+  env: {
+    production: {
+      plugins: [
+        [
+          'babel-plugin-root-import',
+          {
+            rootPathPrefix: '~',
+            rootPathSuffix: 'src',
+          },
+        ],
+        'react-native-reanimated/plugin',
+      ],
+    },
+  },
 };

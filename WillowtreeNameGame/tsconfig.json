@@ -5,7 +5,7 @@
     "emitDecoratorMetadata": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "~/*": ["*"]
     }
   }
 }
