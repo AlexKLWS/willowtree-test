@@ -1,0 +1,34 @@
+diff --git a/node_modules/react-native/ReactAndroid/api/ReactAndroid.api b/node_modules/react-native/ReactAndroid/api/ReactAndroid.api
+index e647de2..6a14ffd 100644
+--- a/node_modules/react-native/ReactAndroid/api/ReactAndroid.api
++++ b/node_modules/react-native/ReactAndroid/api/ReactAndroid.api
+@@ -6459,9 +6459,9 @@ public class com/facebook/react/views/imagehelper/ImageSource {
+ 	public final fun getSize ()D
+ 	public final fun getSource ()Ljava/lang/String;
+ 	public static final fun getTransparentBitmapImageSource (Landroid/content/Context;)Lcom/facebook/react/views/imagehelper/ImageSource;
+-	public final fun getUri ()Landroid/net/Uri;
++	public fun getUri ()Landroid/net/Uri;
+ 	public fun hashCode ()I
+-	public final fun isResource ()Z
++	public fun isResource ()Z
+ }
+ 
+ public final class com/facebook/react/views/imagehelper/ImageSource$Companion {
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/views/imagehelper/ImageSource.kt b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/views/imagehelper/ImageSource.kt
+index 583b4a0..fdd9bcb 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/views/imagehelper/ImageSource.kt
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/views/imagehelper/ImageSource.kt
+@@ -23,11 +23,11 @@ constructor(
+ ) {
+ 
+   /** Get the URI for this image - can be either a parsed network URI or a resource URI. */
+-  public val uri: Uri = computeUri(context)
++  public open val uri: Uri = computeUri(context)
+   /** Get the area of this image. */
+   public val size: Double = width * height
+   /** Get whether this image source represents an Android resource or a network URI. */
+-  public var isResource: Boolean = false
++  public open var isResource: Boolean = false
+     private set
+ 
+   override fun equals(other: Any?): Boolean {
