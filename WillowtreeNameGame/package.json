@@ -51,6 +51,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@4.4.1",
   "postinstall": "patch-package"
 }
